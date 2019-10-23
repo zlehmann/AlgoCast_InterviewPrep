@@ -8,32 +8,39 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function buildCharMap(str) {
-  const charMap = {}
-
-  for (let chr of str.replace(/[^\w]/g, "").toLowerCase()) {
-      charMap[chr] = charMap[chr] + 1 || 1
-  }
-
-  return charMap
-}
-
 function anagrams(stringA, stringB) {
-  const aCharMap = buildCharMap(stringA)
-  const bCharMap = buildCharMap(stringB)
+  const cleanA = stringA.replace(/[^\w]/g, "").toLowerCase().split('').sort().join('')
+  const cleanB = stringB.replace(/[^\w]/g, "").toLowerCase().split('').sort().join('')
 
-  if(Object.keys(stringA).length == Object.keys(stringB).length) {
-    for (let key in aCharMap) {
-      if (aCharMap[key] !== bCharMap[key]) {
-        return false
-      } else {
-        return true
-      }
-    }
+  if (cleanA === cleanB) {
+    return true
   } else {
     return false
   }
-
 }
 
 module.exports = anagrams;
+//   const charMap = {}
+//
+//   for (let chr of str.replace(/[^\w]/g, "").toLowerCase()) {
+//       charMap[chr] = charMap[chr] + 1 || 1
+//   }
+//
+//   return charMap
+// }
+//
+// function anagrams(stringA, stringB) {
+//   const aCharMap = buildCharMap(stringA)
+//   const bCharMap = buildCharMap(stringB)
+//
+//   if(Object.keys(stringA).length == Object.keys(stringB).length) {
+//     for (let key in aCharMap) {
+//       if (aCharMap[key] !== bCharMap[key]) {
+//         return false
+//       } else {
+//         return true
+//       }
+//     }
+//   } else {
+//     return false
+//   }
