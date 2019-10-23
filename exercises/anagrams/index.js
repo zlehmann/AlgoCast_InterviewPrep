@@ -24,14 +24,14 @@ function anagrams(stringA, stringB) {
 
   if(Object.keys(stringA).length == Object.keys(stringB).length) {
     for (let key in aCharMap) {
-      if (aCharMap[key] != bCharMap[key]) {
-        return False
+      if (aCharMap[key] !== bCharMap[key]) {
+        return false
       } else {
-        return True
+        return true
       }
     }
   } else {
-    return False
+    return false
   }
 
 }
