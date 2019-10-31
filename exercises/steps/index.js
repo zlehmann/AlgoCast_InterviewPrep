@@ -17,18 +17,23 @@
 //       '### '
 //       '####'
 
-function steps(n) {
-  for (let i=0; i<n; i++) {
-    let stair = ""
-    for (let j=0; j<n; j++) {
-      if (j <= i) {
-        stair = stair + "#"
-      } else {
-        stair = stair + " "
-      }
-    }
-    console.log(stair)
+function steps(n, row=0, stair="") {
+  //base case
+  if (row === n) {
+    return
   }
+  //do thing
+  if (stair.length === n) {
+    console.log(stair)
+    return steps(n, row + 1)
+  }
+
+  if (stair.length <= row) {
+    stair += "#"
+  } else {
+    stair += " "
+  }
+  steps(n, row, stair)
 }
 module.exports = steps;
 
@@ -40,4 +45,17 @@ module.exports = steps;
 // for (let i=0;i<n; i++) {
 //     arr[i] = "#"
 //     console.log(arr.join(''))
+// }
+
+
+// for (let i=0; i<n; i++) {
+//   let stair = ""
+//   for (let j=0; j<n; j++) {
+//     if (j <= i) {
+//       stair = stair + "#"
+//     } else {
+//       stair = stair + " "
+//     }
+//   }
+//   console.log(stair)
 // }
