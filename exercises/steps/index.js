@@ -18,15 +18,26 @@
 //       '####'
 
 function steps(n) {
-  let arr = []
   for (let i=0; i<n; i++) {
-    arr.push(" ")
-  }
-  
-  for (let i=0;i<n; i++) {
-      arr[i] = "#"
-      console.log(arr.join(''))
+    let stair = ""
+    for (let j=0; j<n; j++) {
+      if (j <= i) {
+        stair = stair + "#"
+      } else {
+        stair = stair + " "
+      }
+    }
+    console.log(stair)
   }
 }
-
 module.exports = steps;
+
+// let arr = []
+// for (let i=0; i<n; i++) {
+//   arr.push(" ")
+// }
+//
+// for (let i=0;i<n; i++) {
+//     arr[i] = "#"
+//     console.log(arr.join(''))
+// }
