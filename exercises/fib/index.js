@@ -9,17 +9,22 @@
 //   fib(4) === 3
 
 function fib(n) {
-  let result = 0
-  let arr = []
-  for(i=0; i<=n; i++) {
-    if (arr.length>=2) {
-      arr.push(arr[i-2] + arr[i-1])
-    } else {
-      arr.push(i)
-    }
-    result = arr[i]
+  if (n<2) {
+    return n
   }
-  return result
+
+  return fib(n-1) + fib(n-2)
 }
 
 module.exports = fib;
+// let result = 0
+// let arr = []
+// for(i=0; i<=n; i++) {
+//   if (arr.length>=2) {
+//     arr.push(arr[i-2] + arr[i-1])
+//   } else {
+//     arr.push(i)
+//   }
+//   result = arr[i]
+// }
+// return result
