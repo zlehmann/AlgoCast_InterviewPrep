@@ -13,6 +13,11 @@ class LinkedList {
   constructor() {
     this.head = null
   }
+
+  insertFirst(data) {
+    const link = new Node(data, this.head)
+    this.head = link
+  }
 }
 
 module.exports = { Node, LinkedList };
