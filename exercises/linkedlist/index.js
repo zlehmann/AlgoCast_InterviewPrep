@@ -21,11 +21,15 @@ class LinkedList {
   size() {
     let count = 0
     let node = this.head
-    while(node != null) {
+    while(node) {
       count += 1
       node = node.next
     }
     return count
+  }
+
+  getFirst() {
+    return this.head
   }
 }
 
