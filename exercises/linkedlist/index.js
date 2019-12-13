@@ -128,6 +128,14 @@ class LinkedList {
       }
     }
   }
+
+  forEach(func) {
+    const len = this.size()
+    for( let i = 0; i<len; i++) {
+      let node = this.getAt(i)
+      func(node)
+    }
+  }
 }
 
 module.exports = { Node, LinkedList };
