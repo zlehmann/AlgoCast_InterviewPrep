@@ -20,12 +20,22 @@ class Node {
 
   insert(data) {
     let node = this
+
     if (node.data > data) {
       if (node.left == undefined) {
         let newNode = new Node(data)
         node.left = newNode
       }
       node = this.left
+      node.insert(data)
+    }
+
+    if (node.data < data) {
+      if (node.right == undefined) {
+        let newNode = new Node(data)
+        node.right = newNode
+      }
+      node = this.right
       node.insert(data)
     }
   }
