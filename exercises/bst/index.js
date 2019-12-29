@@ -33,14 +33,12 @@ class Node {
   }
 
   contains(data) {
-    let node = this
-
-    if (node.data == data) {
-      return node
-    } else if (node.data > data && node.left) {
-      node = node.left
-    } else if (node.data < data && nodelright) {
-      node = node.right
+    if (this.data === data) {
+      return this
+    } else if (this.data > data && this.left) {
+      return this.left.contains(data)
+    } else if (this.data < data && this.right) {
+      return this.right.contains(data)
     } else {
       return null
     }
