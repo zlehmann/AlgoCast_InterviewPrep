@@ -21,22 +21,28 @@ class Node {
   insert(data) {
     let node = this
 
-    if (node.data > data) {
-      if (node.left == undefined) {
-        let newNode = new Node(data)
-        node.left = newNode
+    if (node.data > data && node.left) {
+        this.left.insert(data)
+      } else if (data < this.data) {
+        this.left = new Node(data)
+      } else if (data > this.data && this.right) {
+        this.right.insert(data)
+      } else if (data > this.data) {
+        this.right = new Node(data)
       }
-      node = this.left
-      node.insert(data)
-    }
+  }
 
-    if (node.data < data) {
-      if (node.right == undefined) {
-        let newNode = new Node(data)
-        node.right = newNode
-      }
-      node = this.right
-      node.insert(data)
+  contains(data) {
+    let node = this
+
+    if (node.data == data) {
+      return node
+    } else if (node.data > data && node.left) {
+      node = node.left
+    } else if (node.data < data && nodelright) {
+      node = node.right
+    } else {
+      return null
     }
   }
 }
