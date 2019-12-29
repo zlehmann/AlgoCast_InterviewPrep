@@ -16,11 +16,17 @@ function levelWidth(root) {
   let counters = [0]
 
   while(arr.length > 1) {
-    if (arr)
     const node = arr.shift()
-    arr.push(...node.children)
-    counters[-1]+=1
+
+    if (node === 's') {
+      counters.push(0)
+      arr.push('s')
+    } else {
+      arr.push(...node.children)
+      counters[counters.length -1] ++
+    }
   }
+  return counters
 }
 
 module.exports = levelWidth;
