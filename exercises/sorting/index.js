@@ -16,18 +16,16 @@ function bubbleSort(arr) {
 
 function selectionSort(arr) {
   for (let i = 0; i < arr.length; i++){
-    const indexOfMin = arr[i]
-    let indexOfLower = 0
+    let indexOfMin = i
     for (let j = (i+1); j < arr.length; j++){
-      if (arr[j] < indexOfMin) {
-        indexOfLower = j
+      if (arr[j] < arr[indexOfMin]) {
+        indexOfMin = j
       }
     }
-    if ( indexOfMin != indexOfLower) {
-      let lowest = arr[indexOfLower]
-      let higher = arr[indexOfMin]
-      arr[indexOfMin] = lowest
-      arr[indexOfLower] = higher
+    if (indexOfMin !== i) {
+      let lesser = arr[indexOfMin]
+      arr[indexOfMin] = arr[i]
+      arr[i] = lesser
     }
   }
   return arr
